@@ -1,0 +1,36 @@
+func deljitter(){
+	 nargin = (len(locals()))
+	printf("length:",nargin)
+	 if (noise1==True){
+		nargin = 3
+	}	else{
+			nargin = 2
+		}
+	// print('after the if condition',nargin)
+	if (nargin < 1){
+		printf("deljitter: notEnoughInputs")
+	}
+	//user input: position 'k' missing
+	 if (nargin == 1){
+		k = 1
+	}
+	if (nargin == 2){
+		noise1 = 1e+6 //80e-14
+	}
+	x_i2 =$1
+	printf("hi")
+	objref h1
+	//h1= new Matrix(5000,1)
+	//h1= msrcdest.zero()
+	
+	//h1 = np.zeros(shape=(5000))
+	h1[k-1] = 1
+	y1 = (np.convolve(x_i2,h1))
+	y1np = np.array(y1.ravel())
+	#print('values of y1', y1)
+	#y1 = sps.fftconvolve(x_i, h1)
+   	y3init = np.array(noise1*(np.random.rand(len(y1np),1)))
+   	y3 = y1np + y3init.ravel()
+	y4 = y3.ravel()
+return y4
+}

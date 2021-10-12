@@ -1,0 +1,34 @@
+begintemplate grc
+public grccell,grcadex,transmembranecurrent,vec,nc,nil,t
+objref grcadex,vec,nc,nil
+create grccell
+proc init(){
+	vec=new Vector()
+	create grccell
+	grccell{
+		grcadex= new ADEX(0.5)
+		diam=4
+		
+
+	}
+}
+endtemplate grc
+
+objref grcobj,grclist
+grclist= new List()
+for i=0,9{
+	grcobj= new grc(0.5)
+	grclist.append(grcobj)
+}
+
+objref Mossy[4]
+for i=0, 3 {
+	Mossy[i]=new SpikeGenerator(0.5)
+	Mossy[i].start=20
+	Mossy[i].fast_invl=2
+	Mossy[i].slow_invl=80
+	Mossy[i].end=1e10
+	Mossy[i].burst_len=1
+
+	
+}
